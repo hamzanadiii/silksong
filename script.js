@@ -299,14 +299,13 @@ function showLoadingModal() {
 }
 
 function triggerCPALocker() {
-    // Trigger the CPA locker using _KE() function
-    if (typeof _KE === 'function') {
-        _KE();
+    // Trigger the LockerPreview content locker
+    if (window.lockerPreviewConfig && window.lockerPreviewConfig.url) {
+        // Open the locker URL in a new window/tab
+        window.open(window.lockerPreviewConfig.url, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
     } else {
-        // Fallback if CPA script hasn't loaded yet
-        console.error('CPA locker script not loaded');
-        // Show user-friendly message
-        alert('Download service is currently loading. Please try again in a moment.');
+        // Fallback - redirect to the locker URL
+        window.location.href = 'https://lockerpreview.com/cl/i/rndj5k?preview=1';
     }
 }
 
@@ -385,6 +384,11 @@ function preloadCriticalAssets() {
 function trackEvent(eventName, properties = {}) {
     // Integration with analytics service
     console.log(`Event: ${eventName}`, properties);
+    
+    // Vercel Analytics integration
+    if (typeof window.va !== 'undefined') {
+        window.va('track', eventName, properties);
+    }
     
     // Example Google Analytics integration:
     // if (typeof gtag !== 'undefined') {

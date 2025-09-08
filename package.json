@@ -1,0 +1,18 @@
+{
+  "name": "hollowknight-silksong-landing",
+  "version": "1.0.0",
+  "description": "Hollow Knight: Silksong Mobile Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build required'",
+    "start": "python -m http.server 8000"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {},
+  "keywords": ["hollow-knight", "silksong", "mobile", "landing-page"],
+  "author": "",
+  "license": "MIT"
+}
